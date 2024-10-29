@@ -1,19 +1,32 @@
-async function getData(url){
+import{assignByPrice}from "./ApiIntegration.js"
 
-    try {
-        const response = await fetch(url);
-        return await response.json();
+// Crear el formulario
+const form = document.createElement('form');
+form.method = 'POST'; 
+form.action = '/submit'; 
+document.body.appendChild(form);
 
-      } catch (error) {
-        console.error('Error:', error);
-      }
-};
+// Crea el label para el campo de entrada de tipo número
+const labelNumber = document.createElement('label');
+labelNumber.textContent = 'Introduce un número: ';
+labelNumber.htmlFor = 'quantity';
+form.appendChild(labelNumber);
 
-async function Main() {
-  const tiendas = await getData('https://www.cheapshark.com/api/1.0/stores');
-  console.log(tiendas)
-  const deal = await getData ('https://www.cheapshark.com/api/1.0/deals?upperPrice=15');
-console.log(deal)
-}
+// Crea el tipo número
+const inputNumber = document.createElement('input');
+inputNumber.type = 'number';
+inputNumber.name = 'quantity';
+inputNumber.id = 'quantity'; 
+form.appendChild(inputNumber);
 
-Main();         
+// Crear el botón de envío
+const submitButton = document.createElement('button');
+submitButton.type = 'submit';
+submitButton.textContent = 'Enviar';
+form.appendChild(submitButton);
+submitButton.addEventListener("click", async (e) => {
+  e.preventDefault();
+  console.log(inputNumber.value)
+  const importDeal = await assignByPrice(inputNumber.value);
+  console.log(importDeal)
+})  
