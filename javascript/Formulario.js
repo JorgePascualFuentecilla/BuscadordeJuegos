@@ -1,5 +1,5 @@
 import{assignByPrice}from "./ApiIntegration.js"
-import {mostrarTarjetas} from "./gameCards.js";
+import{mostrarTarjetas}from "./gameCards.js"
 // Crear el formulario
 const form = document.createElement('form');
 form.method = 'POST'; 
@@ -28,6 +28,5 @@ submitButton.addEventListener("click", async (e) => {
   e.preventDefault();
   console.log(inputNumber.value)
   const importDeal = await assignByPrice(inputNumber.value);
-  console.log(importDeal)
-  mostrarTarjetas()
+  mostrarTarjetas(importDeal)
 })  
