@@ -4,8 +4,8 @@ const contenedorTarjetas = document.querySelector(".contenedorTarjetas");
 // Función para obtener los datos de la API y crear las tarjetas
 export function mostrarTarjetas(deals) {
     try {
-        
-        
+
+
         // Iterar sobre cada deal para crear la tarjeta
         deals.forEach(deal => {
             // Crear el contenedor de la tarjeta
@@ -59,6 +59,17 @@ export function mostrarTarjetas(deals) {
             linkMetacritic.href = deal.metacriticLink || "#"; // Reemplaza con la propiedad real si la API la incluye
             linkMetacritic.textContent = `Puntuación Metacritic: ${deal.metacriticScore || 'No disponible'}`;
             tarjeta.appendChild(linkMetacritic);
+
+            const dealID = deal.dealID; // Obtenemos el ID de cada juego
+            const link = `https://www.cheapshark.com/redirect?dealID=${dealID}`;
+
+            // Crear un elemento HTML de enlace
+            const linkElement = document.createElement("a");
+            linkElement.href = link;
+            linkElement.textContent = "Comprar ahora";
+            linkElement.target = "_blank"; // Opcional, abre en una nueva pestaña
+            tarjeta.appendChild(linkElement);
+
 
             // Añadir la tarjeta completa al contenedor principal
             contenedorTarjetas.appendChild(tarjeta);
