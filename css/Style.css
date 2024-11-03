@@ -1,0 +1,41 @@
+body {
+    background-image: url("assets/fotonoticia_20130910131520_1200.jpg");
+    background-size: cover;
+    background-size: ;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+
+}
+
+#formulario {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+}
+
+.contenedorTarjetas {
+    margin-top: 200px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 20px;
+}
+
+.tarjeta {
+    
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 380px;
+    padding: 5px;
+    background-color: rgba(250, 250, 250, 0.5);
+    flex-direction: row;
+}
+
+.enlace {
+    display: block;
+}
+

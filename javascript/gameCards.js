@@ -37,7 +37,8 @@ export function mostrarTarjetas(deals) {
             precioTarjeta.appendChild(normalPrice);
 
             const savings = document.createElement('a');
-            savings.textContent = `Ahorro: ${deal.savings}%`;
+            const save = +(deal.savings || 100)
+            savings.textContent = `Ahorro: ${save.toFixed(0)}%`;
             precioTarjeta.appendChild(savings);
 
             // Añadir el contenedor de precios a la tarjeta
@@ -56,8 +57,10 @@ export function mostrarTarjetas(deals) {
 
             // Link a Metacritic
             const linkMetacritic = document.createElement('a');
-            linkMetacritic.href = deal.metacriticLink || "#"; // Reemplaza con la propiedad real si la API la incluye
-            linkMetacritic.textContent = `Puntuación Metacritic: ${deal.metacriticScore || 'No disponible'}`;
+            linkMetacritic.href = 'https://www.metacritic.com' + deal.metacriticLink;
+            linkMetacritic.textContent = `Puntuación Metacritic: ${deal.metacriticScore  || 'No disponible'}`;
+            linkMetacritic.classList.add('enlace');
+            linkMetacritic.target = "_blank";
             tarjeta.appendChild(linkMetacritic);
 
             const dealID = deal.dealID; // Obtenemos el ID de cada juego

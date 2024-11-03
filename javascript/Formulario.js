@@ -4,7 +4,8 @@ import{mostrarTarjetas}from "./gameCards.js"
 const form = document.createElement('form');
 form.method = 'POST'; 
 form.action = '/submit'; 
-document.body.appendChild(form);
+const container = document.querySelector("#formulario")
+container.appendChild(form);
 
 // Crea el label para el campo de entrada de tipo número
 const labelNumber = document.createElement('label');
