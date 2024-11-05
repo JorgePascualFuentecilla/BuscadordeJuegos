@@ -1,14 +1,18 @@
 body {
-    background-image: url("assets/fotonoticia_20130910131520_1200.jpg");
+    background-image: url("assets/025208.webp");
     background-size: cover;
-    background-size: ;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-
+    font-family: "Roboto", sans-serif;
+    font-weight: 200;
+    font-style: normal;
 }
 
 #formulario {
+    max-width: 405px;
+    padding: 20px;
+    background-color: #8bc3d9;
     position: fixed;
     top: 0;
     right: 0;
@@ -25,8 +29,13 @@ body {
     row-gap: 20px;
 }
 
+.imagenTarjeta {
+    object-fit: cover;
+    width: 100%;
+}
+
 .tarjeta {
-    
+
     border: 2px solid black;
     border-radius: 10px;
     width: 380px;
@@ -38,4 +47,3 @@ body {
 .enlace {
     display: block;
 }
-

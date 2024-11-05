@@ -1,12 +1,15 @@
 // Contenedor donde se añadirán las tarjetas
 const contenedorTarjetas = document.querySelector(".contenedorTarjetas");
 
-// Función para obtener los datos de la API y crear las tarjetas
+/**
+ * Función para obtener los datos de la API y crear las tarjetas
+ * @param {*} Juegos en oferta 
+ */
 export function mostrarTarjetas(deals) {
     try {
+        contenedorTarjetas.innerHTML = "";
 
 
-        // Iterar sobre cada deal para crear la tarjeta
         deals.forEach(deal => {
             // Crear el contenedor de la tarjeta
             const tarjeta = document.createElement('div');
@@ -58,7 +61,7 @@ export function mostrarTarjetas(deals) {
             // Link a Metacritic
             const linkMetacritic = document.createElement('a');
             linkMetacritic.href = 'https://www.metacritic.com' + deal.metacriticLink;
-            linkMetacritic.textContent = `Puntuación Metacritic: ${deal.metacriticScore  || 'No disponible'}`;
+            linkMetacritic.textContent = `Puntuación Metacritic: ${deal.metacriticScore || 'No disponible'}`;
             linkMetacritic.classList.add('enlace');
             linkMetacritic.target = "_blank";
             tarjeta.appendChild(linkMetacritic);
@@ -81,6 +84,3 @@ export function mostrarTarjetas(deals) {
         console.error('Error al obtener los datos de la API:', error);
     }
 }
-
-// Llamar a la función para mostrar las tarjetas
-

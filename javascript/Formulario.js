@@ -1,15 +1,15 @@
-import{assignByPrice}from "./ApiIntegration.js"
-import{mostrarTarjetas}from "./gameCards.js"
+import { assignByPrice } from "./ApiIntegration.js"
+import { mostrarTarjetas } from "./gameCards.js"
 // Crear el formulario
 const form = document.createElement('form');
-form.method = 'POST'; 
-form.action = '/submit'; 
+form.method = 'POST';
+form.action = '/submit';
 const container = document.querySelector("#formulario")
 container.appendChild(form);
 
 // Crea el label para el campo de entrada de tipo número
 const labelNumber = document.createElement('label');
-labelNumber.textContent = 'Introduce un número: ';
+labelNumber.textContent = '¿Cuanto quereis gastar? ';
 labelNumber.htmlFor = 'quantity';
 form.appendChild(labelNumber);
 
@@ -17,7 +17,7 @@ form.appendChild(labelNumber);
 const inputNumber = document.createElement('input');
 inputNumber.type = 'number';
 inputNumber.name = 'quantity';
-inputNumber.id = 'quantity'; 
+inputNumber.id = 'quantity';
 form.appendChild(inputNumber);
 
 // Crear el botón de envío
